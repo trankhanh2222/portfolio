@@ -1,11 +1,14 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { useReducedMotion } from "../hooks/useEnvironment.js";
+import { useWipe } from "../context/WipeContext.jsx";
 
-// Lop "bu i giay" rat mo, nam sau noi dung. Tat khi giam chuyen dong.
+// Lop "bui giay" rat mo, nam sau noi dung. Tat khi giam chuyen dong.
 export function ParticlesField({ resolvedTheme }) {
   const reduced = useReducedMotion();
+  const { wiping } = useWipe();
+  const container = useRef(null);
   const [color, setColor] = useState("#5b584f");
 
   // Lay mau tu token de khong hard-code mau o component.
@@ -19,6 +22,19 @@ export function ParticlesField({ resolvedTheme }) {
   const init = useCallback(async (engine) => {
     await loadSlim(engine);
   }, []);
+
+  const loaded = useCallback((c) => {
+    container.current = c;
+  }, []);
+
+  // Tam dung engine khi cutscene doi ngon ngu phu man hinh: khong ve vo ich
+  // duoi overlay, nha CPU/GPU cho animation.
+  useEffect(() => {
+    const c = container.current;
+    if (!c) return;
+    if (wiping) c.pause();
+    else c.play();
+  }, [wiping]);
 
   const options = useMemo(
     () => ({
@@ -63,6 +79,7 @@ export function ParticlesField({ resolvedTheme }) {
       className="particles"
       aria-hidden="true"
       init={init}
+      loaded={loaded}
       options={options}
     />
   );

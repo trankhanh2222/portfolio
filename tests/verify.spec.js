@@ -40,11 +40,11 @@ test("all nav links target real sections", async ({ page }) => {
 test("language toggle switches copy and persists", async ({ page }) => {
   await page.goto("/");
   const brand = page.locator(".nav__brand").first();
-  await expect(brand).toContainText("[Tên hiển thị]");
+  await expect(brand).toContainText("Trần Huy Khánh");
   await page.locator(".nav__tools .icon-btn--lang").click();
-  await expect(brand).toContainText("[Display name]");
+  await expect(brand).toContainText("Tran Huy Khanh");
   await page.reload();
-  await expect(brand).toContainText("[Display name]");
+  await expect(brand).toContainText("Tran Huy Khanh");
   const stored = await page.evaluate(() => localStorage.getItem("portfolio.lang"));
   expect(stored).toBe("en");
 });
@@ -58,6 +58,15 @@ test("theme toggle switches and persists", async ({ page }) => {
   await page.reload();
   const persisted = await page.evaluate(() => document.documentElement.dataset.theme);
   expect(persisted).toBe(after);
+});
+
+test("project image loads with alt text", async ({ page }) => {
+  await page.goto("/");
+  const img = page.locator(".project__img").first();
+  await expect(img).toHaveAttribute("alt", /.+/);
+  await expect
+    .poll(() => img.evaluate((el) => el.naturalWidth), { timeout: 5000 })
+    .toBeGreaterThan(0);
 });
 
 test("copy email shows feedback", async ({ page, context }) => {

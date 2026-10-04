@@ -13,10 +13,10 @@ export const content = {
   vi: {
     meta: {
       // [SEO: tiêu đề tab trình duyệt, nên ngắn gọn và có tên bạn]
-      title: "[Tên bạn] - Portfolio",
+      title: "trankhanhh",
       // [SEO: mô tả 120-160 ký tự, hiển thị dưới kết quả tìm kiếm]
       description:
-        "[Mô tả ngắn 120-160 ký tự về bạn, chuyên môn và giá trị bạn mang lại cho người xem portfolio này.]",
+        "Trần Huy Khánh – học sinh đam mê lập trình thi đấu, C++ và công nghệ. Khám phá hành trình học tập, kỹ năng và những dự án cá nhân.",
     },
     nav: {
       // [Nhãn điều hướng: giữ ngắn, mỗi mục trỏ tới một section có thật]
@@ -30,33 +30,31 @@ export const content = {
       // [Dòng nhỏ phía trên tên, ví dụ "Đang nhận dự án" hoặc lĩnh vực bạn làm]
       eyebrow: "Portfolio cá nhân",
       // [Tên hiển thị: tên bạn muốn xuất hiện trên portfolio]
-      name: "[Tên hiển thị]",
+      name: "Trần Huy Khánh",
       // [Vai trò: nghề nghiệp bạn muốn thể hiện, hiển thị dạng chữ xoay]
       roles: [
-        "[Vai trò 1: ví dụ Frontend Developer]",
-        "[Vai trò 2: ví dụ UI Engineer]",
-        "[Vai trò 3: ví dụ Motion Designer]",
+        "Student",
       ],
       // [1-2 câu: bạn làm gì, phục vụ ai và giá trị bạn tạo ra. Tối đa 20 từ.]
       tagline:
-        "[1-2 câu: bạn làm gì, phục vụ ai và giá trị bạn tạo ra]",
+        "Học lập trình qua những bài toán, khám phá công nghệ và biến ý tưởng thành sản phẩm thực tế.",
       ctaPrimary: "Xem dự án",
       ctaSecondary: "Liên hệ",
     },
     about: {
       // [Nhãn section, viết thường, không đánh số]
       label: "Giới thiệu",
-      heading: "[Một câu mô tả bạn bằng chính giọng của bạn]",
+      heading: "Không ngừng học hỏi, thử nghiệm và phát triển.",
       // [2-3 đoạn giới thiệu thật, không bịa thành tích. Có thể chia nhiều đoạn.]
       body: [
-        "[Đoạn 1: bạn là ai, xuất phát từ đâu, hiện tập trung vào điều gì.]",
-        "[Đoạn 2: cách bạn làm việc, điều bạn quan tâm khi xây sản phẩm.]",
+        "Tôi là Trần Huy Khánh, một học sinh có niềm đam mê với lập trình và công nghệ. Hiện tại, tôi tập trung vào lập trình thi đấu với C++, rèn luyện tư duy thuật toán và giải quyết các bài toán có độ phức tạp ngày càng cao.",
+        "Bên cạnh lập trình thi đấu, tôi còn quan tâm đến phát triển phần mềm, trí tuệ nhân tạo và các công cụ hỗ trợ lập trình. Tôi thích tìm hiểu cách công nghệ hoạt động, thử nghiệm những ý tưởng mới và ứng dụng kiến thức vào các dự án cá nhân",
       ],
       facts: [
         // [Thông tin nhanh, mỗi dòng một ý. Không bịa số liệu.]
-        { k: "Kinh nghiệm", v: "[Số năm hoặc giai đoạn bạn thật sự làm việc]" },
-        { k: "Tập trung", v: "[Lĩnh vực chính bạn dành nhiều thời gian nhất]" },
-        { k: "Vị trí", v: "[Thành phố / hình thức làm việc, ví dụ Remote]" },
+        { k: "Kinh nghiệm", v: "Junior. Học lập trình được 2 năm" },
+        { k: "Tập trung", v: "Lập trình thi đấu. Các mảng khác mỗi mảng 1 ít." },
+        { k: "Vị trí", v: "Đắk Lắk, Việt Nam" },
       ],
     },
     skills: {
@@ -64,11 +62,10 @@ export const content = {
       heading: "Những gì tôi làm hằng ngày",
       // [Mức % là tự đánh giá, hãy sửa cho đúng với bạn. Tối thiểu 5 mục.]
       items: [
-        { name: "[Kỹ năng 1]", level: 90, note: "[Một dòng mô tả bạn dùng nó vào việc gì]" },
-        { name: "[Kỹ năng 2]", level: 85, note: "[Một dòng mô tả bạn dùng nó vào việc gì]" },
-        { name: "[Kỹ năng 3]", level: 80, note: "[Một dòng mô tả bạn dùng nó vào việc gì]" },
-        { name: "[Kỹ năng 4]", level: 75, note: "[Một dòng mô tả bạn dùng nó vào việc gì]" },
-        { name: "[Kỹ năng 5]", level: 70, note: "[Một dòng mô tả bạn dùng nó vào việc gì]" },
+        { name: "C++", level: 50, note: "Lập trình thi đấu." },
+        { name: "Python", level: 30, note: "Có thể đọc hiểu, viết code đơn giản dùng tool." },
+        { name: "Git/Github", level: 60, note: "Có thể sử dụng cơ bản, ứng dụng vào thực tế" },
+        { name: "AI/Code cli", level: 80, note: "Ứng dụng AI, có khả năng dùng agents skills, plugins, ..." },
       ],
     },
     projects: {
@@ -78,51 +75,26 @@ export const content = {
       //  hoặc repository. Placeholder mặc định dùng example.com để không lỗi.]
       items: [
         {
-          title: "[Tên dự án 1]",
-          description: "[2-3 câu: bài toán, bạn làm gì, kết quả là gì]",
-          category: "[Loại: Web / Mobile / Tool]",
-          tech: ["[Công nghệ]", "[Công nghệ]", "[Công nghệ]"],
-          link: "https://example.com",
-          visual: "type",
+          title: "Portfolio",
+          description: "Trang web giới thiệu bản thân tôi",
+          category: "Website tĩnh",
+          tech: ["React", "Vite"],
+          link: "https://github.com/trankhanh2222/portfolio",
+          image: "projects/portfolio.png",
+          imageAlt: "Ảnh chụp giao diện tối của trang portfolio này",
           featured: true,
-        },
-        {
-          title: "[Tên dự án 2]",
-          description: "[2-3 câu mô tả ngắn]",
-          category: "[Loại]",
-          tech: ["[Công nghệ]", "[Công nghệ]"],
-          link: "https://example.com",
-          visual: "grid",
-          featured: false,
-        },
-        {
-          title: "[Tên dự án 3]",
-          description: "[2-3 câu mô tả ngắn]",
-          category: "[Loại]",
-          tech: ["[Công nghệ]", "[Công nghệ]"],
-          link: "https://example.com",
-          visual: "wave",
-          featured: false,
-        },
-        {
-          title: "[Tên dự án 4]",
-          description: "[2-3 câu mô tả ngắn]",
-          category: "[Loại]",
-          tech: ["[Công nghệ]", "[Công nghệ]"],
-          link: "https://example.com",
-          visual: "stack",
-          featured: false,
         },
       ],
       viewLabel: "Mở dự án",
+      imagePlaceholder: "[Ảnh dự án]",
     },
     contact: {
       label: "Liên hệ",
-      heading: "Cùng trao đổi về công việc tiếp theo",
+      heading: "Tìm tôi tại: ",
       // [Một câu mời liên hệ, nêu rõ bạn nhận dạng công việc nào]
-      blurb: "[Một câu: bạn đang tìm cơ hội / nhận loại dự án nào]",
+      blurb: " ",
       // [Email thật của bạn]
-      email: "hello@example.com",
+      email: "tranhuykhanh6444@gmail.com",
       emailLabel: "Email",
       copy: "Sao chép",
       copied: "Đã sao chép",
@@ -130,14 +102,14 @@ export const content = {
       mailLabel: "Gửi email",
       socials: [
         // [Liên kết mạng xã hội thật. Xoá bớt nếu không dùng.]
-        { label: "GitHub", href: "https://github.com/[tài-khoản]" },
-        { label: "LinkedIn", href: "https://linkedin.com/in/[tài-khoản]" },
-        { label: "Email", href: "mailto:hello@example.com" },
+        { label: "GitHub", href: "https://github.com/trankhanh2222" },
+        { label: "Facebook", href: "https://www.facebook.com/tran.khanh.411143" },
+        { label: "Email", href: "mailto:tranhuykhanh6444@gmail.com" },
       ],
     },
     footer: {
       // [Câu cuối trang, có thể là ghi chú hoặc lời cảm ơn ngắn]
-      note: "[Ghi chú cuối trang: ví dụ cảm ơn vì đã ghé qua]",
+      note: "Cảm ơn vì mọi thứ",
       backToTop: "Lên đầu trang",
     },
     a11y: {
@@ -156,17 +128,20 @@ export const content = {
       projectOf: "Dự án",
       externalLink: "mở trong tab mới",
       roleRotator: "Vai trò hiện tại",
-      createdAt: "Xây dựng bằng React và Vite",
+      createdAt: " ",
     },
   },
 
   en: {
     meta: {
-      title: "[Your Name] - Portfolio",
+      // [SEO: browser tab title, keep it short and include your name]
+      title: "trankhanhh",
+      // [SEO: 120-160 character description shown under search results]
       description:
-        "[Short 120-160 character description of who you are, your craft, and the value this portfolio shows.]",
+        "Tran Huy Khanh - a student passionate about competitive programming, C++ and technology. Explore my learning journey, skills and personal projects.",
     },
     nav: {
+      // [Nav labels: keep short, each points to a real section]
       home: "Home",
       about: "About",
       skills: "Skills",
@@ -174,102 +149,87 @@ export const content = {
       contact: "Contact",
     },
     hero: {
+      // [Small line above the name, e.g. "Open to work" or your field]
       eyebrow: "Personal portfolio",
-      name: "[Display name]",
-      roles: [
-        "[Role 1: e.g. Frontend Developer]",
-        "[Role 2: e.g. UI Engineer]",
-        "[Role 3: e.g. Motion Designer]",
-      ],
-      tagline: "[One or two sentences: what you do, for whom, and the value you create]",
+      // [Display name: the name you want shown on the portfolio]
+      name: "Tran Huy Khanh",
+      // [Roles: what you do, shown as rotating text]
+      roles: ["Student"],
+      // [1-2 sentences: what you do, for whom, and the value you create. Max 20 words.]
+      tagline:
+        "Learning to code through problems, exploring technology, and turning ideas into real products.",
       ctaPrimary: "View projects",
       ctaSecondary: "Get in touch",
     },
     about: {
+      // [Section label, lowercase, no numbering]
       label: "About",
-      heading: "[One sentence that describes you in your own voice]",
+      heading: "Always learning, experimenting and growing.",
+      // [2-3 honest intro paragraphs, no invented achievements. Can be split.]
       body: [
-        "[Paragraph 1: who you are, where you started, what you focus on now.]",
-        "[Paragraph 2: how you work and what you care about when building products.]",
+        "I am Tran Huy Khanh, a student with a passion for programming and technology. Right now I focus on competitive programming with C++, sharpening my algorithmic thinking and solving problems of ever-increasing difficulty.",
+        "Beyond competitive programming, I am also interested in software development, artificial intelligence and developer tooling. I like understanding how technology works, trying new ideas and applying what I learn to personal projects.",
       ],
       facts: [
-        { k: "Experience", v: "[Years or period you have genuinely worked]" },
-        { k: "Focus", v: "[The area you spend most of your time on]" },
-        { k: "Based in", v: "[City / working arrangement, e.g. Remote]" },
+        // [Quick facts, one per line. Do not invent numbers.]
+        { k: "Experience", v: "Junior. Been coding for 2 years" },
+        { k: "Focus", v: "Competitive programming. A little of everything else." },
+        { k: "Based in", v: "Dak Lak, Vietnam" },
       ],
     },
     skills: {
       label: "Skills",
       heading: "What I do day to day",
+      // [The % is self-assessed, adjust it to match you. At least 5 items.]
       items: [
-        { name: "[Skill 1]", level: 90, note: "[One line on how you use it]" },
-        { name: "[Skill 2]", level: 85, note: "[One line on how you use it]" },
-        { name: "[Skill 3]", level: 80, note: "[One line on how you use it]" },
-        { name: "[Skill 4]", level: 75, note: "[One line on how you use it]" },
-        { name: "[Skill 5]", level: 70, note: "[One line on how you use it]" },
+        { name: "C++", level: 50, note: "Competitive programming." },
+        { name: "Python", level: 30, note: "Can read, write simple scripts and use tools." },
+        { name: "Git/GitHub", level: 60, note: "Comfortable with the basics, used in real work." },
+        { name: "AI/Code CLI", level: 80, note: "Using AI, agent skills, plugins and more." },
       ],
     },
     projects: {
       label: "Projects",
       heading: "A few things I have built",
+      // [At least 4 projects. `link` should point somewhere safe, e.g. a project
+      //  page or repository. Default placeholder uses example.com to avoid errors.]
       items: [
         {
-          title: "[Project 1 name]",
-          description: "[2-3 sentences: the problem, what you did, the outcome]",
-          category: "[Type: Web / Mobile / Tool]",
-          tech: ["[Tech]", "[Tech]", "[Tech]"],
-          link: "https://example.com",
-          visual: "type",
+          title: "Portfolio",
+          description: "My personal website introducing who I am.",
+          category: "Static website",
+          tech: ["React", "Vite"],
+          link: "https://github.com/trankhanh2222/portfolio",
+          image: "projects/portfolio.png",
+          imageAlt: "Screenshot of this portfolio in dark theme",
           featured: true,
-        },
-        {
-          title: "[Project 2 name]",
-          description: "[Short 2-3 sentence description]",
-          category: "[Type]",
-          tech: ["[Tech]", "[Tech]"],
-          link: "https://example.com",
-          visual: "grid",
-          featured: false,
-        },
-        {
-          title: "[Project 3 name]",
-          description: "[Short 2-3 sentence description]",
-          category: "[Type]",
-          tech: ["[Tech]", "[Tech]"],
-          link: "https://example.com",
-          visual: "wave",
-          featured: false,
-        },
-        {
-          title: "[Project 4 name]",
-          description: "[Short 2-3 sentence description]",
-          category: "[Type]",
-          tech: ["[Tech]", "[Tech]"],
-          link: "https://example.com",
-          visual: "stack",
-          featured: false,
         },
       ],
       viewLabel: "Open project",
+      imagePlaceholder: "[Project image]",
     },
     contact: {
       label: "Contact",
-      heading: "Let us talk about the next thing",
-      blurb: "[One sentence: the opportunities or work you are open to]",
-      email: "hello@example.com",
+      heading: "Find me at: ",
+      // [One sentence inviting contact, stating what kind of work you take on]
+      blurb: " ",
+      // [Your real email]
+      email: "tranhuykhanh6444@gmail.com",
       emailLabel: "Email",
       copy: "Copy",
       copied: "Copied",
       copyError: "Copy failed, please select it manually",
       mailLabel: "Send email",
       socials: [
-        { label: "GitHub", href: "https://github.com/[account]" },
-        { label: "LinkedIn", href: "https://linkedin.com/in/[account]" },
-        { label: "Email", href: "mailto:hello@example.com" },
+        // [Real social links. Remove any you do not use.]
+        { label: "GitHub", href: "https://github.com/trankhanh2222" },
+        { label: "Facebook", href: "https://www.facebook.com/tran.khanh.411143" },
+        { label: "Email", href: "mailto:tranhuykhanh6444@gmail.com" },
       ],
     },
     footer: {
-      note: "[Footer note: e.g. thanks for stopping by]",
+      // [Closing line, a note or short thanks]
+      note: "Thanks for everything",
       backToTop: "Back to top",
     },
     a11y: {
@@ -288,7 +248,7 @@ export const content = {
       projectOf: "Project",
       externalLink: "opens in a new tab",
       roleRotator: "Current role",
-      createdAt: "Built with React and Vite",
+      createdAt: " ",
     },
   },
 };

@@ -1,5 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState, startTransition } from "react";
 import { content } from "../data/content.js";
+import { useWipe } from "./WipeContext.jsx";
 
 const STORAGE_KEY = "portfolio.lang";
 const SUPPORTED = ["vi", "en"];
@@ -22,7 +23,7 @@ function readStoredLang() {
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(readStoredLang);
-  const [wiping, setWiping] = useState(false);
+  const { startWipe } = useWipe();
   const timer = useRef(null);
 
   useEffect(() => {
@@ -36,14 +37,10 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => () => clearTimeout(timer.current), []);
 
-  const endWipe = useCallback(() => setWiping(false), []);
-
   const value = useMemo(
     () => ({
       lang,
       setLang,
-      wiping,
-      endWipe,
       // Doi ngon ngu bang cutscene ngan: bat overlay, doi o dinh pha giu.
       // Reduced motion thi doi tuc thi, khong overlay.
       setLangAnimated: (next) => {
@@ -55,13 +52,14 @@ export function LanguageProvider({ children }) {
           return;
         }
         clearTimeout(timer.current);
-        setWiping(true);
-        timer.current = setTimeout(() => setLang(next), SWITCH_AT);
+        startWipe();
+        // Non-urgent: de main thread uu tien animation thay vi re-render.
+        timer.current = setTimeout(() => startTransition(() => setLang(next)), SWITCH_AT);
       },
       toggle: () => setLang((l) => (l === "vi" ? "en" : "vi")),
       t: content[lang],
     }),
-    [lang, wiping, endWipe]
+    [lang, startWipe]
   );
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;

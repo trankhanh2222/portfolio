@@ -152,6 +152,7 @@ svg {
   z-index: var(--z-wipe);
   overflow: hidden;
   pointer-events: none;
+  contain: paint;
 }
 .lang-wipe__col {
   position: absolute;
@@ -161,6 +162,8 @@ svg {
   height: 100%;
   background: var(--c-ink);
   transform: translateY(101%);
+}
+.lang-wipe.is-active .lang-wipe__col {
   will-change: transform;
 }
 .lang-wipe__col:nth-child(2) {

@@ -267,10 +267,14 @@
 .project:hover .project__title {
   background-size: 100% 2px;
 }
-.project__visual .pv {
-  transition: transform var(--dur-base) var(--easy), opacity var(--dur-base) var(--easy);
+.project__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-base) var(--easy);
 }
-.project:hover .project__visual .pv {
+.project:hover .project__img {
   transform: scale(1.03);
 }
 .project--wide .project__title {
@@ -307,78 +311,28 @@
   align-self: flex-start;
 }
 
-/* Placeholder visuals: khoi UI duoc thiet ke, khong phai anh loi ------- */
-.pv {
-  position: absolute;
-  inset: 0;
-}
-.pv--type {
-  background: var(--c-ink);
-  color: var(--c-bg);
+/* Project chua co anh: khung placeholder ghi ro, khong gia lam anh that --- */
+.project__visual--empty {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--c-surface),
+    var(--c-surface) 10px,
+    var(--c-bg) 10px,
+    var(--c-bg) 20px
+  );
 }
-.pv--type .pv__line {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.5rem, 10vw, 6rem);
-  line-height: 0.9;
-  letter-spacing: var(--tracking-display);
-  color: color-mix(in srgb, var(--c-bg) 92%, transparent);
-}
-.pv--grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 2px;
-  background: var(--c-border);
-}
-.pv--grid span {
-  background: var(--c-surface);
-  transition: background-color var(--dur-base) var(--easy);
-}
-.pv--grid span:nth-child(1) {
-  background: var(--c-ink);
-}
-.pv--grid span:nth-child(5) {
-  background: var(--c-accent);
-}
-.pv--wave {
-  display: flex;
-  align-items: flex-end;
-  gap: 3px;
-  padding: clamp(1rem, 4vw, 2.4rem);
-}
-.pv--wave i {
-  flex: 1;
-  background: var(--c-ink);
-  opacity: 0.85;
-}
-.pv--stack {
-  padding: clamp(1rem, 3vw, 1.8rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.7rem;
-}
-.pv--stack .pv__bar {
-  height: 10px;
-  background: var(--c-border);
-}
-.pv--stack .pv__bar:nth-child(1) {
-  width: 80%;
-  background: var(--c-accent);
-}
-.pv--stack .pv__bar:nth-child(2) {
-  width: 55%;
-}
-.pv--stack .pv__bar:nth-child(3) {
-  width: 92%;
-}
-.pv--stack .pv__bar:nth-child(4) {
-  width: 40%;
-  background: var(--c-ink);
+.project__ph {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--c-muted);
+  border: 1px solid var(--c-border);
+  padding: 0.35rem 0.7rem;
+  background: var(--c-bg);
 }
 
 /* CONTACT: cot don gian, email lon ------------------------------------ */

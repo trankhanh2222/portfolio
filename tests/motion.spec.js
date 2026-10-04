@@ -36,7 +36,7 @@ test("language toggle plays an edition wipe, not a whole-page view transition", 
   await page.locator(".nav__tools .icon-btn--lang").click();
   // Overlay bat ngay khi bam, roi tu tat sau khi animation ket thuc.
   await expect(page.locator(".lang-wipe")).toHaveClass(/is-active/);
-  await expect(page.locator(".nav__brand").first()).toContainText("[Display name]");
+  await expect(page.locator(".nav__brand").first()).toContainText("Tran Huy Khanh");
   await expect(page.locator(".lang-wipe")).not.toHaveClass(/is-active/, { timeout: 4000 });
   const vtCalls = await page.evaluate(() => window.__vtCalls);
   expect(vtCalls).toBe(0);
@@ -61,7 +61,7 @@ test("reduced motion skips view transitions", async ({ browser }) => {
   expect(calls).toBe(0);
 
   await page.locator(".nav__tools .icon-btn--lang").click();
-  await expect(page.locator(".nav__brand").first()).toContainText("[Display name]");
+  await expect(page.locator(".nav__brand").first()).toContainText("Tran Huy Khanh");
   await expect(page.locator(".lang-wipe")).not.toHaveClass(/is-active/);
   await context.close();
 });

@@ -1,39 +1,23 @@
 import { RevealFade, RevealLines, RevealLine } from "../components/Reveal.jsx";
 import { IconExternal } from "../components/Icons.jsx";
 
-function ProjectVisual({ kind }) {
-  if (kind === "grid") {
+function ProjectVisual({ project, t }) {
+  if (project.image) {
     return (
-      <div className="pv pv--grid" aria-hidden="true">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <span key={i} />
-        ))}
+      <div className="project__visual">
+        <img
+          className="project__img"
+          src={`${import.meta.env.BASE_URL}${project.image}`}
+          alt={project.imageAlt || project.title}
+          loading="lazy"
+        />
       </div>
     );
   }
-  if (kind === "wave") {
-    const heights = [30, 55, 40, 80, 62, 90, 48, 72, 36, 68, 52, 84];
-    return (
-      <div className="pv pv--wave" aria-hidden="true">
-        {heights.map((h, i) => (
-          <i key={i} style={{ height: `${h}%` }} />
-        ))}
-      </div>
-    );
-  }
-  if (kind === "stack") {
-    return (
-      <div className="pv pv--stack" aria-hidden="true">
-        <span className="pv__bar" />
-        <span className="pv__bar" />
-        <span className="pv__bar" />
-        <span className="pv__bar" />
-      </div>
-    );
-  }
+  // Project chua co anh: khung placeholder ghi ro, khong gia lam anh that.
   return (
-    <div className="pv pv--type" aria-hidden="true">
-      <span className="pv__line">Aa</span>
+    <div className="project__visual project__visual--empty">
+      <span className="project__ph">{t.projects.imagePlaceholder}</span>
     </div>
   );
 }
@@ -43,9 +27,7 @@ function Project({ project, index, t }) {
   return (
     <article className={"project" + (wide ? " project--wide" : "")}>
       <RevealFade y={24}>
-        <div className="project__visual">
-          <ProjectVisual kind={project.visual} />
-        </div>
+        <ProjectVisual project={project} t={t} />
       </RevealFade>
 
       <div className="project__body">
