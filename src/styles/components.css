@@ -1,0 +1,365 @@
+/* ---------------------------------------------------------------------------
+   Components: navbar, buttons, toc index, switches, reveal primitives.
+   --------------------------------------------------------------------------- */
+
+/* Particles layer: nam sau noi dung, khong chan thao tac chuot. */
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-particles);
+  pointer-events: none;
+}
+
+/* Reveal line-mask primitive */
+.rl {
+  display: block;
+  overflow: hidden;
+}
+.rl__inner {
+  display: block;
+  will-change: transform;
+}
+
+/* Buttons / text links --------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--c-ink);
+  border-radius: var(--radius-1);
+  color: var(--c-ink);
+  transition: background-color var(--dur-fast) var(--easy), color var(--dur-fast) var(--easy),
+    transform var(--dur-fast) var(--easy);
+}
+.btn:hover {
+  background: var(--c-ink);
+  color: var(--c-bg);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn svg {
+  transition: transform var(--dur-base) var(--easy);
+}
+.btn:hover svg {
+  transform: translateX(3px);
+}
+.btn--primary {
+  background: var(--c-ink);
+  color: var(--c-bg);
+}
+.btn--primary:hover {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: var(--c-on-accent);
+}
+
+.link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-block: 0.15rem;
+  color: var(--c-ink);
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-base) var(--easy);
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Navbar ----------------------------------------------------------------- */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--z-nav);
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--dur-base) var(--easy), border-color var(--dur-base) var(--easy);
+}
+.nav.is-scrolled {
+  background: color-mix(in srgb, var(--c-bg) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom-color: var(--c-border);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  min-height: 64px;
+}
+.nav__brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: var(--tracking-display);
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav__brand-mark {
+  width: 11px;
+  height: 11px;
+  background: var(--c-accent);
+  display: inline-block;
+}
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+}
+.nav__link {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--c-secondary);
+  padding-block: 0.4rem;
+  transition: color var(--dur-fast) var(--easy);
+}
+.nav__link:hover {
+  color: var(--c-ink);
+}
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--c-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-base) var(--easy);
+}
+.nav__link[aria-current="true"] {
+  color: var(--c-ink);
+}
+.nav__link[aria-current="true"]::after {
+  transform: scaleX(1);
+}
+.nav__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.nav__toggle-mobile {
+  display: none;
+}
+
+/* Small square icon controls */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-1);
+  color: var(--c-ink);
+  transition: border-color var(--dur-fast) var(--easy), background-color var(--dur-fast) var(--easy),
+    color var(--dur-fast) var(--easy), transform var(--dur-fast) var(--easy);
+}
+.icon-btn:active {
+  transform: scale(0.94);
+}
+.icon-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-btn:hover {
+  border-color: var(--c-ink);
+  background: var(--c-ink);
+  color: var(--c-bg);
+}
+
+/* Language switch */
+.lang {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-1);
+  overflow: hidden;
+}
+.lang__opt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.08em;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-muted);
+  transition: background-color var(--dur-fast) var(--easy), color var(--dur-fast) var(--easy);
+}
+.lang__opt:hover {
+  color: var(--c-ink);
+}
+.lang__opt[aria-pressed="true"] {
+  background: var(--c-ink);
+  color: var(--c-bg);
+}
+.lang__sep {
+  width: 1px;
+  align-self: stretch;
+  background: var(--c-border);
+}
+
+/* TOC index (signature) ------------------------------------------------- */
+.toc {
+  position: fixed;
+  top: 50%;
+  right: var(--gutter);
+  transform: translateY(-50%);
+  z-index: var(--z-rail);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: flex-end;
+}
+.toc__item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  min-height: 28px;
+  color: var(--c-muted);
+  transition: color var(--dur-base) var(--easy);
+}
+.toc__num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+.toc__label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transition: max-width var(--dur-base) var(--easy), opacity var(--dur-base) var(--easy);
+}
+.toc__bar {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--c-border-strong);
+  transform-origin: right center;
+  transition: width var(--dur-base) var(--easy), background-color var(--dur-base) var(--easy);
+}
+.toc__item:hover,
+.toc__item:focus-visible {
+  color: var(--c-ink);
+}
+.toc__item:hover .toc__label,
+.toc__item:focus-visible .toc__label {
+  max-width: 8rem;
+  opacity: 1;
+}
+.toc__item[aria-current="true"] {
+  color: var(--c-ink);
+}
+.toc__item[aria-current="true"] .toc__bar {
+  width: 46px;
+  background: var(--c-accent);
+  height: 2px;
+}
+
+/* Mobile drawer ---------------------------------------------------------- */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background: color-mix(in srgb, var(--c-bg) 96%, transparent);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+}
+.menu__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding-inline: var(--gutter);
+  border-bottom: 1px solid var(--c-border);
+}
+.menu__list {
+  padding: var(--sp-6) var(--gutter);
+  display: flex;
+  flex-direction: column;
+}
+.menu__link {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 9vw, 2.6rem);
+  letter-spacing: var(--tracking-display);
+  padding-block: var(--sp-3);
+  border-bottom: 1px solid var(--c-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: var(--c-ink);
+}
+.menu__link .toc__num {
+  font-size: 0.8rem;
+  color: var(--c-muted);
+}
+.menu__foot {
+  margin-top: auto;
+  padding: var(--sp-5) var(--gutter);
+  display: flex;
+  gap: var(--sp-4);
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--c-border);
+}
+
+/* Copy feedback live region */
+.copy-note {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.04em;
+  color: var(--c-muted);
+  min-height: 1.2em;
+}
+.copy-note[data-status="copied"] {
+  color: var(--c-accent);
+}
+.copy-note[data-status="error"] {
+  color: var(--c-accent);
+}
+
+@media (max-width: 900px) {
+  .nav__links {
+    display: none;
+  }
+  .nav__toggle-mobile {
+    display: inline-flex;
+  }
+  .toc {
+    display: none;
+  }
+}

@@ -1,0 +1,110 @@
+/* Design tokens. PRESS direction. Single source of truth for colors, type, space. */
+:root {
+  /* Color: light (default) */
+  --c-bg: #f5f4f0;
+  --c-surface: #ffffff;
+  --c-ink: #121211;
+  --c-secondary: #5b584f;
+  --c-accent: #c8342b;
+  --c-text: #1a1917;
+  --c-muted: #6e6a5e;
+  --c-border: #d9d5cb;
+  --c-border-strong: #b8b2a4;
+  --c-focus: #1b4dff;
+  --c-on-accent: #ffffff;
+
+  /* Typography */
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  --fs-display: clamp(2.75rem, 8.2vw, 7.5rem);
+  --fs-h2: clamp(1.9rem, 4.4vw, 3.4rem);
+  --fs-h3: clamp(1.25rem, 2vw, 1.6rem);
+  --fs-body: clamp(1rem, 1.05vw, 1.0625rem);
+  --fs-sm: 0.875rem;
+  --fs-meta: 0.75rem;
+
+  --lh-tight: 0.98;
+  --lh-heading: 1.08;
+  --lh-body: 1.65;
+
+  --tracking-meta: 0.16em;
+  --tracking-display: -0.03em;
+
+  /* Space */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+
+  --container: 1280px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-pad: clamp(4.5rem, 10vw, 9rem);
+
+  /* Radius: deliberate, near-square. Editorial, not app. */
+  --radius-0: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;
+
+  /* Elevation: used sparingly. Tinted, not black. */
+  --shadow-1: 0 1px 0 rgba(18, 18, 17, 0.06);
+  --shadow-2: 0 10px 30px -18px rgba(18, 18, 17, 0.35);
+
+  /* Motion */
+  --dur-fast: 0.16s;
+  --dur-base: 0.3s;
+  --dur-slow: 0.6s;
+  --easy: cubic-bezier(0.16, 1, 0.3, 1);
+  --easy-soft: cubic-bezier(0.33, 1, 0.68, 1);
+
+  /* Z-index scale */
+  --z-base: 0;
+  --z-rail: 20;
+  --z-particles: 30;
+  --z-nav: 40;
+  --z-overlay: 50;
+  --z-grain: 60;
+}
+
+/* Color: dark. Token-driven, follows system unless overridden. */
+:root[data-theme="dark"] {
+  --c-bg: #141311;
+  --c-surface: #1c1a17;
+  --c-ink: #f4f2ec;
+  --c-secondary: #b9b3a5;
+  --c-accent: #e0574d;
+  --c-text: #eceae3;
+  --c-muted: #948e80;
+  --c-border: #302d28;
+  --c-border-strong: #474239;
+  --c-focus: #7aa2ff;
+  --c-on-accent: #141311;
+  --shadow-1: 0 1px 0 rgba(0, 0, 0, 0.5);
+  --shadow-2: 0 14px 34px -18px rgba(0, 0, 0, 0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --c-bg: #141311;
+    --c-surface: #1c1a17;
+    --c-ink: #f4f2ec;
+    --c-secondary: #b9b3a5;
+    --c-accent: #e0574d;
+    --c-text: #eceae3;
+    --c-muted: #948e80;
+    --c-border: #302d28;
+    --c-border-strong: #474239;
+    --c-focus: #7aa2ff;
+    --c-on-accent: #141311;
+    --shadow-1: 0 1px 0 rgba(0, 0, 0, 0.5);
+    --shadow-2: 0 14px 34px -18px rgba(0, 0, 0, 0.8);
+  }
+}

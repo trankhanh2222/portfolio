@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+test-results
+playwright-report
+.vite
+
+# Verification artifacts (không đưa lên repo)
+screenshots/
+
+# Cấu hình công cụ / máy cá nhân (không thuộc ứng dụng)
+.opencode/
+opencode.json
+config.json
+model-schema.json
