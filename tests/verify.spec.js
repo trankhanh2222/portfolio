@@ -41,7 +41,7 @@ test("language toggle switches copy and persists", async ({ page }) => {
   await page.goto("/");
   const brand = page.locator(".nav__brand").first();
   await expect(brand).toContainText("[Tên hiển thị]");
-  await page.locator(".nav__tools .lang__opt", { hasText: "EN" }).click();
+  await page.locator(".nav__tools .icon-btn--lang").click();
   await expect(brand).toContainText("[Display name]");
   await page.reload();
   await expect(brand).toContainText("[Display name]");
@@ -52,7 +52,7 @@ test("language toggle switches copy and persists", async ({ page }) => {
 test("theme toggle switches and persists", async ({ page }) => {
   await page.goto("/");
   const initial = await page.evaluate(() => document.documentElement.dataset.theme);
-  await page.locator(".nav__tools .icon-btn").first().click();
+  await page.locator(".nav__tools .icon-btn--theme").click();
   const after = await page.evaluate(() => document.documentElement.dataset.theme);
   expect(after).not.toBe(initial);
   await page.reload();

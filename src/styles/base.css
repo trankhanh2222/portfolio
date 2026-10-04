@@ -133,18 +133,94 @@ svg {
   }
 }
 
-/* View Transitions: vet quet lan ra tu nut duoc bam.
-   `--vt-x`, `--vt-y` duoc dat bang JS. Forward dung hinh thoi (canh cheo),
-   reverse dung hinh vuong (huong khac). Polygon -> polygon la animatable,
-   khong can @property. */
+/* View Transitions (chi con cho doi theme): vet quet hinh thoi lan ra tu nut
+   duoc bam. `--vt-x`, `--vt-y` dat bang JS. Polygon -> polygon la animatable,
+   khong can @property. Doi ngon ngu dung cutscene rieng (xem LanguageWipe.jsx). */
 ::view-transition-old(root) {
   animation: none;
 }
 ::view-transition-new(root) {
-  animation: vt-diamond 0.55s var(--easy) both;
+  animation: vt-diamond 1.2s var(--easy) both;
 }
-:root[data-vt="reverse"]::view-transition-new(root) {
-  animation: vt-square 0.5s var(--easy) both;
+
+/* Cutscene doi ngon ngu: ba dai muc dung len theo nhip lech, mot duong accent
+   ke ngang khi da phu kin, roi ca ba truot di. Thuan hinh hoc, khong chu.
+   Pha giu cua dai (35%-72%) la luc LanguageContext doi ngon ngu. */
+.lang-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-wipe);
+  overflow: hidden;
+  pointer-events: none;
+}
+.lang-wipe__col {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34%;
+  height: 100%;
+  background: var(--c-ink);
+  transform: translateY(101%);
+  will-change: transform;
+}
+.lang-wipe__col:nth-child(2) {
+  left: 33%;
+}
+.lang-wipe__col:nth-child(3) {
+  left: 66%;
+  width: 34%;
+}
+.lang-wipe__rule {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--c-accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+}
+.lang-wipe.is-active .lang-wipe__col {
+  animation: lang-wipe-col var(--dur-wipe) var(--easy) both;
+}
+.lang-wipe.is-active .lang-wipe__col:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.lang-wipe.is-active .lang-wipe__col:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.lang-wipe.is-active .lang-wipe__rule {
+  animation: lang-wipe-rule 0.5s var(--easy) 0.3s both;
+}
+
+@keyframes lang-wipe-col {
+  0% {
+    transform: translateY(101%);
+  }
+  35%,
+  72% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-101%);
+  }
+}
+
+@keyframes lang-wipe-rule {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  32%,
+  58% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
 }
 
 @keyframes vt-diamond {
@@ -166,21 +242,3 @@ svg {
   }
 }
 
-@keyframes vt-square {
-  from {
-    clip-path: polygon(
-      calc(var(--vt-x) - 16px) calc(var(--vt-y) - 16px),
-      calc(var(--vt-x) + 16px) calc(var(--vt-y) - 16px),
-      calc(var(--vt-x) + 16px) calc(var(--vt-y) + 16px),
-      calc(var(--vt-x) - 16px) calc(var(--vt-y) + 16px)
-    );
-  }
-  to {
-    clip-path: polygon(
-      calc(var(--vt-x) - 160vmax) calc(var(--vt-y) - 160vmax),
-      calc(var(--vt-x) + 160vmax) calc(var(--vt-y) - 160vmax),
-      calc(var(--vt-x) + 160vmax) calc(var(--vt-y) + 160vmax),
-      calc(var(--vt-x) - 160vmax) calc(var(--vt-y) + 160vmax)
-    );
-  }
-}

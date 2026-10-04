@@ -4,36 +4,23 @@ import { useLanguage } from "../context/LanguageContext.jsx";
 import { useTheme } from "../context/ThemeContext.jsx";
 import { useScrolled } from "../hooks/useEnvironment.js";
 import { NAV_IDS } from "./TocIndex.jsx";
-import { IconMenu, IconClose, IconSun, IconMoon } from "./Icons.jsx";
+import { IconMenu, IconClose, IconSun, IconMoon, IconGlobe } from "./Icons.jsx";
 
 function LangSwitch({ t }) {
   const { lang, setLangAnimated } = useLanguage();
-  const reduce = useReducedMotion();
-  const press = (next) => (e) => {
-    if (next === lang) return;
-    if (reduce) return setLangAnimated(next);
-    setLangAnimated(next, e.currentTarget);
-  };
+  const next = lang === "vi" ? "en" : "vi";
   return (
-    <div className="lang" role="group" aria-label={t.a11y.languageLabel}>
-      <button
-        type="button"
-        className="lang__opt"
-        aria-pressed={lang === "vi"}
-        onClick={press("vi")}
-      >
-        VI
-      </button>
-      <span className="lang__sep" aria-hidden="true" />
-      <button
-        type="button"
-        className="lang__opt"
-        aria-pressed={lang === "en"}
-        onClick={press("en")}
-      >
-        EN
-      </button>
-    </div>
+    <button
+      type="button"
+      className="icon-btn icon-btn--lang"
+      onClick={() => setLangAnimated(next)}
+      aria-label={`${t.a11y.switchLanguage}: ${next.toUpperCase()}`}
+    >
+      <IconGlobe />
+      <span className="icon-btn__code" aria-hidden="true">
+        {lang === "vi" ? "VI" : "EN"}
+      </span>
+    </button>
   );
 }
 

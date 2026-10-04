@@ -192,37 +192,17 @@
   color: var(--c-bg);
 }
 
-/* Language switch */
-.lang {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--c-border);
-  border-radius: var(--radius-1);
-  overflow: hidden;
+/* Language switch: mot nut duy nhat, hien ma ngon ngu hien tai */
+.icon-btn--lang {
+  width: auto;
+  gap: 0.4rem;
+  padding-inline: 0.7rem;
 }
-.lang__opt {
+.icon-btn__code {
   font-family: var(--font-mono);
   font-size: var(--fs-meta);
-  letter-spacing: 0.08em;
-  min-width: 44px;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--c-muted);
-  transition: background-color var(--dur-fast) var(--easy), color var(--dur-fast) var(--easy);
-}
-.lang__opt:hover {
-  color: var(--c-ink);
-}
-.lang__opt[aria-pressed="true"] {
-  background: var(--c-ink);
-  color: var(--c-bg);
-}
-.lang__sep {
-  width: 1px;
-  align-self: stretch;
-  background: var(--c-border);
+  letter-spacing: 0.06em;
+  line-height: 1;
 }
 
 /* TOC index (signature) ------------------------------------------------- */

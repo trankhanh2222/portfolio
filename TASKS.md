@@ -50,8 +50,11 @@ Nguồn sự thật cho tiến độ. `[x]` luôn kèm bằng chứng. `[~]` là
 [x] Chuyển theme bằng vet quét chéo từ nút (View Transitions API)
     Evidence: `src/lib/viewTransition.js`, keyframes `vt-diamond` trong `src/styles/base.css`; test "theme toggle uses a view transition when supported" pass.
 
-[x] Chuyển ngôn ngữ bằng vet quét ngược hướng
-    Evidence: keyframes `vt-square` (data-vt="reverse"); test "language toggle uses a reversed view transition" pass.
+[x] Chuyển ngôn ngữ bằng cutscene "press platen" (3 dải mực dựng lên + đường kẻ accent)
+    Evidence: `src/components/LanguageWipe.jsx`, keyframes `lang-wipe-col`/`lang-wipe-rule` + `--dur-wipe`; test "language toggle plays an edition wipe..." pass.
+
+[x] Công tắc ngôn ngữ gộp thành một nút (icon quả địa cầu + mã VI/EN)
+    Evidence: `LangSwitch` trong `src/components/Navbar.jsx`, style `.icon-btn--lang`; test verify dùng `.nav__tools .icon-btn--lang` pass.
 
 [x] Vi tương tác: icon theme xoay, menu stagger, card hover, skill hover, mũi tên CTA, copy pop
     Evidence: `src/components/Navbar.jsx`, `src/styles/components.css`, `src/styles/sections.css`; test "project card lifts..." pass.

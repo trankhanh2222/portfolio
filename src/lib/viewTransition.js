@@ -2,8 +2,7 @@ import { flushSync } from "react-dom";
 
 // Chay View Transition neu trinh duyet ho tro va nguoi dung khong yeu cau
 // giam chuyen dong. Gan toa do nut bam de hieu ung lan ra tu do.
-// `reverse` doi huong nghien cua vet quet (dung cho doi ngon ngu).
-export function runViewTransition(originEl, update, { reverse = false } = {}) {
+export function runViewTransition(originEl, update) {
   const root = document.documentElement;
   const reduce =
     typeof window.matchMedia === "function" &&
@@ -22,7 +21,7 @@ export function runViewTransition(originEl, update, { reverse = false } = {}) {
     root.style.setProperty("--vt-x", "50%");
     root.style.setProperty("--vt-y", "0px");
   }
-  root.dataset.vt = reverse ? "reverse" : "forward";
+  root.dataset.vt = "forward";
 
   document.startViewTransition(() => {
     flushSync(update);

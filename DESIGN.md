@@ -49,7 +49,7 @@ Font được self-host trong `public/fonts/` (subset latin + vietnamese), khai 
 - **Signature 1:** masthead hiện từng dòng bằng mặt nạ (`RevealLines`/`RevealLine`).
 - **Signature 2:** mục lục biên tập ở cạnh phải (`.toc`), số của section đang xem mở rộng và vẽ đường đỏ (`useActiveSection` dùng IntersectionObserver).
 - **Chuyển theme:** vet quét chéo lan ra từ chính nút bấm, dùng View Transitions API (`src/lib/viewTransition.js` + keyframes `vt-diamond`). Không hỗ trợ/reduced motion thì đổi tức thì.
-- **Chuyển ngôn ngữ:** vet quét ngược hướng từ nút (`vt-square`), cùng cơ chế.
+- **Chuyển ngôn ngữ:** cutscene "press platen" - ba dải mực ink dựng lên theo nhịp lệch, một đường kẻ accent xuất hiện khi đã phủ kín (đổi ngôn ngữ lúc này), rồi cả ba trượt đi (thuần hình học, không chữ; `src/components/LanguageWipe.jsx` + keyframes `lang-wipe-col`/`lang-wipe-rule`). Công tắc ngôn ngữ là một nút duy nhất (icon quả địa cầu + mã VI/EN hiện tại), bấm để đổi. Reduced motion thì đổi tức thì.
 - Icon theme xoay và scale khi đổi; menu mobile vào/ra có stagger; card dự án nhấc nhẹ và gạch chân tiêu đề khi hover; hàng kỹ năng tint và nhích tên; mũi tên CTA nhích khi hover; nút copy nhún nhẹ khi thành công.
 - Particles: lớp "bụi giấy" rất mờ, pointer-reactive nhẹ, nằm sau nội dung (`pointer-events: none`).
 - Parallax Hero rất nhẹ, chỉ `transform`/`opacity`.

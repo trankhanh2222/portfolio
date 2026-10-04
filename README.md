@@ -37,7 +37,7 @@ Các test hiện có:
 - `tests/interaction.spec.js`: menu mobile + Escape, tablet, keyboard focus.
 - `tests/layout-audit.spec.js`: overflow, thứ bậc heading, kích thước tap target.
 - `tests/screenshots.spec.js`: chụp ảnh vào `screenshots/`.
-- `tests/motion.spec.js`: view transition theme/ngôn ngữ, reduced motion bỏ qua, hover card.
+- `tests/motion.spec.js`: view transition theme, cutscene khi đổi ngôn ngữ, reduced motion bỏ qua, hover card.
 
 ## Chỉnh nội dung
 

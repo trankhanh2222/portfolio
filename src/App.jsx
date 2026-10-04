@@ -4,6 +4,7 @@ import { useTheme } from "./context/ThemeContext.jsx";
 import { useActiveSection } from "./hooks/useActiveSection.js";
 import { useScrolled } from "./hooks/useEnvironment.js";
 import { Navbar } from "./components/Navbar.jsx";
+import { LanguageWipe } from "./components/LanguageWipe.jsx";
 import { TocIndex, NAV_IDS } from "./components/TocIndex.jsx";
 import { Hero } from "./sections/Hero.jsx";
 import { About } from "./sections/About.jsx";
@@ -54,6 +55,7 @@ export default function App() {
         setMenuOpen={setMenuOpen}
       />
       <TocIndex t={t} active={active} onNavigate={navigate} />
+      <LanguageWipe />
 
       <main id="main">
         <Hero t={t} onNavigate={navigate} />

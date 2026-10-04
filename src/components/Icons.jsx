@@ -44,6 +44,19 @@ export function IconMoon({ size = 18 }) {
   );
 }
 
+export function IconGlobe({ size = 17 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="7.2" stroke="currentColor" strokeWidth="1.4" />
+      <path
+        d="M2.8 10h14.4M10 2.8c2.5 2.2 2.5 12.2 0 14.4M10 2.8c-2.5 2.2-2.5 12.2 0 14.4"
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+    </svg>
+  );
+}
+
 export function IconArrow({ size = 16 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden="true">

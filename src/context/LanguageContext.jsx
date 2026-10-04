@@ -1,9 +1,12 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { content } from "../data/content.js";
-import { runViewTransition } from "../lib/viewTransition.js";
 
 const STORAGE_KEY = "portfolio.lang";
 const SUPPORTED = ["vi", "en"];
+
+// Cutscene doi ngon ngu: doi o giua pha giu cua cac dai (khoang 415-648ms),
+// sau khi ca ba dai da phu kin. Thoi gian khop keyframes lang-wipe-col trong base.css.
+const SWITCH_AT = 450;
 
 const LanguageContext = createContext(null);
 
@@ -19,6 +22,8 @@ function readStoredLang() {
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(readStoredLang);
+  const [wiping, setWiping] = useState(false);
+  const timer = useRef(null);
 
   useEffect(() => {
     try {
@@ -29,16 +34,34 @@ export function LanguageProvider({ children }) {
     document.documentElement.lang = lang;
   }, [lang]);
 
+  useEffect(() => () => clearTimeout(timer.current), []);
+
+  const endWipe = useCallback(() => setWiping(false), []);
+
   const value = useMemo(
     () => ({
       lang,
       setLang,
-      setLangAnimated: (next, originEl) =>
-        runViewTransition(originEl, () => setLang(next), { reverse: true }),
+      wiping,
+      endWipe,
+      // Doi ngon ngu bang cutscene ngan: bat overlay, doi o dinh pha giu.
+      // Reduced motion thi doi tuc thi, khong overlay.
+      setLangAnimated: (next) => {
+        const reduce =
+          typeof window.matchMedia === "function" &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !next || next === lang) {
+          setLang(next);
+          return;
+        }
+        clearTimeout(timer.current);
+        setWiping(true);
+        timer.current = setTimeout(() => setLang(next), SWITCH_AT);
+      },
       toggle: () => setLang((l) => (l === "vi" ? "en" : "vi")),
       t: content[lang],
     }),
-    [lang]
+    [lang, wiping, endWipe]
   );
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
