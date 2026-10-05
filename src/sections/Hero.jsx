@@ -2,6 +2,7 @@ import { motion, useReducedMotion as useMotionReduced, useScroll, useTransform }
 import { useRef } from "react";
 import { RevealLines, RevealLine, RevealFade } from "../components/Reveal.jsx";
 import { RoleRotator } from "../components/RoleRotator.jsx";
+import { RichText } from "../components/RichText.jsx";
 import { IconArrow } from "../components/Icons.jsx";
 
 export function Hero({ t, onNavigate }) {
@@ -36,7 +37,9 @@ export function Hero({ t, onNavigate }) {
         </div>
 
         <RevealFade delay={0.15}>
-          <p className="hero__tagline">{t.hero.tagline}</p>
+          <p className="hero__tagline">
+            <RichText text={t.hero.tagline} />
+          </p>
           <div className="hero__ctas">
             <a href="#projects" className="btn btn--primary" onClick={go("projects")}>
               {t.hero.ctaPrimary}

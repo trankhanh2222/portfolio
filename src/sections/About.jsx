@@ -1,4 +1,5 @@
 import { RevealFade, RevealLines, RevealLine, RevealStagger, RevealItem } from "../components/Reveal.jsx";
+import { RichText } from "../components/RichText.jsx";
 
 export function About({ t }) {
   return (
@@ -12,7 +13,7 @@ export function About({ t }) {
           </RevealLines>
           <RevealFade delay={0.1}>
             <h2 id="about-title" className="about__heading" style={{ marginTop: "var(--sp-4)" }}>
-              {t.about.heading}
+              <RichText text={t.about.heading} />
             </h2>
           </RevealFade>
         </div>

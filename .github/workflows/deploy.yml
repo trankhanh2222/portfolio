@@ -16,7 +16,7 @@ permissions:
 # Chỉ cho phép một tiến trình deploy chạy đồng thời để tránh xung đột
 concurrency:
   group: "pages"
-  cancel-in-running: false
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Hoặc phiên bản Node phù hợp với dự án của bạn
+          node-version: '22' # Vite 7 yêu cầu Node 20.19+ hoặc 22.12+
           cache: 'npm' # Tự động cache node_modules để build nhanh hơn
 
       - name: Install dependencies

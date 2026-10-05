@@ -20,6 +20,33 @@
   will-change: transform;
 }
 
+/* But gach chan ve tay tren tu khoa (xem RichText.jsx) ------------------- */
+.mark {
+  position: relative;
+  display: inline-block;
+}
+.mark__stroke {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.14em;
+  width: 104%;
+  height: 0.2em;
+  overflow: visible;
+  pointer-events: none;
+}
+.mark__stroke path {
+  stroke: var(--c-accent);
+  stroke-linecap: round;
+}
+.mark__path--main {
+  stroke-width: 3;
+}
+.mark__path--echo {
+  stroke-width: 2;
+  opacity: 0.7;
+}
+
 /* Buttons / text links --------------------------------------------------- */
 .btn {
   display: inline-flex;

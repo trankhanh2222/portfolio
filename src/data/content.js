@@ -16,7 +16,7 @@ export const content = {
       title: "trankhanhh",
       // [SEO: mô tả 120-160 ký tự, hiển thị dưới kết quả tìm kiếm]
       description:
-        "Trần Huy Khánh – học sinh đam mê lập trình thi đấu, C++ và công nghệ. Khám phá hành trình học tập, kỹ năng và những dự án cá nhân.",
+        "Trần Huy Khánh - học sinh đam mê lập trình thi đấu, C++ và công nghệ. Khám phá hành trình học tập, kỹ năng và những dự án cá nhân.",
     },
     nav: {
       // [Nhãn điều hướng: giữ ngắn, mỗi mục trỏ tới một section có thật]
@@ -37,14 +37,14 @@ export const content = {
       ],
       // [1-2 câu: bạn làm gì, phục vụ ai và giá trị bạn tạo ra. Tối đa 20 từ.]
       tagline:
-        "Học lập trình qua những bài toán, khám phá công nghệ và biến ý tưởng thành sản phẩm thực tế.",
+        "Học lập trình qua những *bài toán*, khám phá công nghệ và biến ý tưởng thành sản phẩm thực tế.",
       ctaPrimary: "Xem dự án",
       ctaSecondary: "Liên hệ",
     },
     about: {
       // [Nhãn section, viết thường, không đánh số]
       label: "Giới thiệu",
-      heading: "Không ngừng học hỏi, thử nghiệm và phát triển.",
+      heading: "Không ngừng học hỏi, thử nghiệm và *phát triển*.",
       // [2-3 đoạn giới thiệu thật, không bịa thành tích. Có thể chia nhiều đoạn.]
       body: [
         "Tôi là Trần Huy Khánh, một học sinh có niềm đam mê với lập trình và công nghệ. Hiện tại, tôi tập trung vào lập trình thi đấu với C++, rèn luyện tư duy thuật toán và giải quyết các bài toán có độ phức tạp ngày càng cao.",
@@ -157,14 +157,14 @@ export const content = {
       roles: ["Student"],
       // [1-2 sentences: what you do, for whom, and the value you create. Max 20 words.]
       tagline:
-        "Learning to code through problems, exploring technology, and turning ideas into real products.",
+        "Learning to code through *problems*, exploring technology, and turning ideas into real products.",
       ctaPrimary: "View projects",
       ctaSecondary: "Get in touch",
     },
     about: {
       // [Section label, lowercase, no numbering]
       label: "About",
-      heading: "Always learning, experimenting and growing.",
+      heading: "Always learning, experimenting and *growing*.",
       // [2-3 honest intro paragraphs, no invented achievements. Can be split.]
       body: [
         "I am Tran Huy Khanh, a student with a passion for programming and technology. Right now I focus on competitive programming with C++, sharpening my algorithmic thinking and solving problems of ever-increasing difficulty.",

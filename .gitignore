@@ -1,16 +1,37 @@
+# Dependencies
 node_modules
+
+# Build output
 dist
 dist-ssr
-*.local
-.DS_Store
-test-results
-playwright-report
 .vite
 
-# Verification artifacts (không đưa lên repo)
+# Local / OS
+*.local
+.DS_Store
+
+# Test artifacts
+test-results
+playwright-report
+
+# ---------------------------------------------------------------------------
+# Chi giu tren may, KHONG dua len GitHub (van hoat dong binh thuong khi dev).
+# Bo cac dong duoi day neu ban muon cong khai lai.
+# ---------------------------------------------------------------------------
+
+# Bo test end-to-end (chi dung khi phat trien)
+tests/
+playwright.config.js
+
+# Tai lieu noi bo / quy trinh
+AGENTS.md
+DESIGN.md
+TASKS.md
+
+# Anh chup kiem chung
 screenshots/
 
-# Cấu hình công cụ / máy cá nhân (không thuộc ứng dụng)
+# Cau hinh cong cu / may ca nhan
 .opencode/
 opencode.json
 config.json
