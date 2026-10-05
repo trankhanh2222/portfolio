@@ -1,0 +1,57 @@
+name: Deploy Vite Static Site to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ] # Hoặc "master" tùy tên nhánh chính của bạn
+
+  # Cho phép chạy workflow thủ công từ tab Actions trên GitHub
+  workflow_dispatch:
+
+# Phân quyền để GitHub Actions có thể đọc repo và ghi/đẩy nội dung lên GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Chỉ cho phép một tiến trình deploy chạy đồng thời để tránh xung đột
+concurrency:
+  group: "pages"
+  cancel-in-running: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Hoặc phiên bản Node phù hợp với dự án của bạn
+          cache: 'npm' # Tự động cache node_modules để build nhanh hơn
+
+      - name: Install dependencies
+        run: npm ci # Dùng npm ci an toàn hơn npm install cho CI/CD
+
+      - name: Build project
+        run: npm run build # Lệnh build của Vite (tạo thư mục dist)
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # Thư mục chứa production build của Vite
+
+  deploy:
+    environment:
+      name: github-pages
+      name_url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
